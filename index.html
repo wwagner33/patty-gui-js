@@ -1,1 +1,34 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control.js Example</title>
+    <script src="control.js"></script>
+</head>
+<body>
+    <div id="form">
+        <label for="input">Enter your name:</label>
+        <input type="text" id="input" />
+        <br />
+        <button id="button">Submit</button>
+    </div>
+
+    <script>
+        // Create a new form control
+        var form = new Control("form");
+
+        // Add a text input to the form
+        var input = form.addControl("input", "text");
+        input.setAttribute("placeholder", "Your name");
+
+        // Add a button to the form
+        var button = form.addControl("button", "button");
+        button.innerHTML = "Submit";
+
+        // Add an event listener to the button
+        button.addEventListener("click", function() {
+            alert("Hello, " + input.value + "!");
+        });
+    </script>
+</body>
+</html>
