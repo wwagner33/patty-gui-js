@@ -1,6 +1,18 @@
 # Patty.GUI
 
-Patty.GUI is a lightweight and easy-to-use JavaScript library for creating custom GUI components and dialogs for your web applications.
+Patty.GUI is a lightweight library for building user interfaces (UIs) in web applications using HTML, CSS, and JavaScript.
+
+## Features
+
+Patty.GUI provides a set of UI controls and dialogs that can be easily integrated into your web projects, including:
+
+- Button
+- Checkbox
+- Radio button
+- Dropdown list
+- Textbox
+- Dialog box
+
 
 ## Features
 
