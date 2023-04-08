@@ -1,34 +1,44 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Control.js Example</title>
-    <script src="control.js"></script>
-</head>
-<body>
-    <div id="form">
-        <label for="input">Enter your name:</label>
-        <input type="text" id="input" />
-        <br />
-        <button id="button">Submit</button>
+  <head>
+    <title>Patty.GUI Example</title>
+    <script src="patty.gui.js"></script>
+  </head>
+  <body>
+    <button onclick="showDialog()">Open Dialog</button>
+    <div id="dialog" style="display: none">
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age"><br><br>
+      </form>
     </div>
-
     <script>
-        // Create a new form control
-        var form = new Control("form");
-
-        // Add a text input to the form
-        var input = form.addControl("input", "text");
-        input.setAttribute("placeholder", "Your name");
-
-        // Add a button to the form
-        var button = form.addControl("button", "button");
-        button.innerHTML = "Submit";
-
-        // Add an event listener to the button
-        button.addEventListener("click", function() {
-            alert("Hello, " + input.value + "!");
+      function showDialog() {
+        var dialog = new Patty.GUI.Dialog({
+          title: 'Enter Your Information',
+          content: document.getElementById('dialog'),
+          buttons: [
+            {
+              label: 'Submit',
+              onClick: function() {
+                var name = document.getElementById('name').value;
+                var age = document.getElementById('age').value;
+                alert('Name: ' + name + '\nAge: ' + age);
+                dialog.close();
+              }
+            },
+            {
+              label: 'Cancel',
+              onClick: function() {
+                dialog.close();
+              }
+            }
+          ]
         });
+        dialog.show();
+      }
     </script>
-</body>
+  </body>
 </html>
