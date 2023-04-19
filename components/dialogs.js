@@ -1,57 +1,59 @@
 // dialogs.js
-let dialogContainer = null;
-let idCounter = 0;
+class Dialogs {
+  static dialogContainer = null;
+  static idCounter = 0;
 
-function createUniqueId() {
-  idCounter++;
-  return 'dialog_' + idCounter;
-}
-
-function createDialogBox(title, content, buttons) {
-  let dialogBox = document.createElement('div');
-  dialogBox.className = 'dialog-box';
-  dialogBox.id = createUniqueId();
-
-  let titleElement = document.createElement('div');
-  titleElement.className = 'dialog-title';
-  titleElement.textContent = title;
-  dialogBox.appendChild(titleElement);
-
-  let contentElement = document.createElement('div');
-  contentElement.className = 'dialog-content';
-  contentElement.appendChild(content);
-  dialogBox.appendChild(contentElement);
-
-  if (buttons) {
-    let buttonContainer = document.createElement('div');
-    buttonContainer.className = 'dialog-buttons';
-    buttons.forEach(function(button) {
-      buttonContainer.appendChild(button);
-    });
-    dialogBox.appendChild(buttonContainer);
+  static createUniqueId() {
+    this.idCounter++;
+    return 'dialog_' + this.idCounter;
   }
-  return dialogBox;
-}
 
-function showDialog(title, content, buttons) {
-  let dialogBox = createDialogBox(title, content, buttons);
+  static createDialogBox(title, content, buttons) {
+    let dialogBox = document.createElement('div');
+    dialogBox.className = 'dialog-box';
+    dialogBox.id = this.createUniqueId();
 
-  if (!dialogContainer) {
-    dialogContainer = document.createElement('div');
-    dialogContainer.className = 'dialog-container';
-    document.body.appendChild(dialogContainer);
+    let titleElement = document.createElement('div');
+    titleElement.className = 'dialog-title';
+    titleElement.textContent = title;
+    dialogBox.appendChild(titleElement);
+
+    let contentElement = document.createElement('div');
+    contentElement.className = 'dialog-content';
+    contentElement.appendChild(content);
+    dialogBox.appendChild(contentElement);
+
+    if (buttons) {
+      let buttonContainer = document.createElement('div');
+      buttonContainer.className = 'dialog-buttons';
+      buttons.forEach(function(button) {
+        buttonContainer.appendChild(button);
+      });
+      dialogBox.appendChild(buttonContainer);
+    }
+    return dialogBox;
   }
-  dialogContainer.appendChild(dialogBox);
 
-  document.body.style.overflow = 'hidden';
-}
+  static showDialog(title, content, buttons) {
+    let dialogBox = this.createDialogBox(title, content, buttons);
 
-function hideDialog(dialogBox) {
-  dialogContainer.removeChild(dialogBox);
+    if (!this.dialogContainer) {
+      this.dialogContainer = document.createElement('div');
+      this.dialogContainer.className = 'dialog-container';
+      document.body.appendChild(this.dialogContainer);
+    }
+    this.dialogContainer.appendChild(dialogBox);
 
-  if (dialogContainer.children.length === 0) {
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'hidden';
+  }
+
+  static hideDialog(dialogBox) {
+    this.dialogContainer.removeChild(dialogBox);
+
+    if (this.dialogContainer.children.length === 0) {
+      document.body.style.overflow = '';
+    }
   }
 }
 
-export { showDialog, hideDialog };
+export { Dialogs };
