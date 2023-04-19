@@ -1,52 +1,13 @@
+
 // Define Patty.GUI namespace
-var Patty = Patty || {};
+let Patty = Patty || {};
 Patty.GUI = Patty.GUI || {};
-
-// Define controls module
-Patty.GUI.controls = (function() {
-  // Private variables
-  var _idCounter = 0;
-
-  // Private methods
-  function _createUniqueId() {
-    _idCounter++;
-    return 'control_' + _idCounter;
-  }
-
-  // Public methods
-  function createButton(text, clickCallback) {
-    var button = document.createElement('button');
-    button.textContent = text;
-    button.addEventListener('click', clickCallback);
-    return button;
-  }
-
-  function createLabel(text) {
-    var label = document.createElement('label');
-    label.textContent = text;
-    return label;
-  }
-
-  function createTextbox(defaultValue) {
-    var textbox = document.createElement('input');
-    textbox.type = 'text';
-    textbox.value = defaultValue || '';
-    return textbox;
-  }
-
-  // Expose public methods
-  return {
-    createButton: createButton,
-    createLabel: createLabel,
-    createTextbox: createTextbox
-  };
-})();
 
 // Define dialogs module
 Patty.GUI.dialogs = (function() {
   // Private variables
-  var _dialogContainer = null;
-  var _idCounter = 0;
+  let _dialogContainer = null;
+  let _idCounter = 0;
 
   // Private methods
   function _createUniqueId() {
@@ -56,39 +17,38 @@ Patty.GUI.dialogs = (function() {
 
   function _createDialogBox(title, content, buttons) {
     // Create dialog box container
-    var dialogBox = document.createElement('div');
+    let dialogBox = document.createElement('div');
     dialogBox.className = 'dialog-box';
     dialogBox.id = _createUniqueId();
 
     // Create title
-    var titleElement = document.createElement('div');
+    let titleElement = document.createElement('div');
     titleElement.className = 'dialog-title';
     titleElement.textContent = title;
     dialogBox.appendChild(titleElement);
 
     // Create content
-    var contentElement = document.createElement('div');
+    let contentElement = document.createElement('div');
     contentElement.className = 'dialog-content';
     contentElement.appendChild(content);
     dialogBox.appendChild(contentElement);
 
     // Create buttons
     if (buttons) {
-      var buttonContainer = document.createElement('div');
+      let buttonContainer = document.createElement('div');
       buttonContainer.className = 'dialog-buttons';
       buttons.forEach(function(button) {
         buttonContainer.appendChild(button);
       });
       dialogBox.appendChild(buttonContainer);
     }
-
     return dialogBox;
   }
 
   // Public methods
   function showDialog(title, content, buttons) {
     // Create dialog box
-    var dialogBox = _createDialogBox(title, content, buttons);
+    let dialogBox = _createDialogBox(title, content, buttons);
 
     // Add dialog box to container
     if (!_dialogContainer) {
@@ -116,5 +76,45 @@ Patty.GUI.dialogs = (function() {
   return {
     showDialog: showDialog,
     hideDialog: hideDialog
+  };
+})();
+
+// Define controls module
+Patty.GUI.controls = (function() {
+  // Private variables
+  let _idCounter = 0;
+
+  // Private methods
+  function _createUniqueId() {
+    _idCounter++;
+    return 'control_' + _idCounter;
+  }
+
+  // Public methods
+  function createButton(text, clickCallback) {
+    let button = document.createElement('button');
+    button.textContent = text;
+    button.addEventListener('click', clickCallback);
+    return button;
+  }
+
+  function createLabel(text) {
+    let label = document.createElement('label');
+    label.textContent = text;
+    return label;
+  }
+
+  function createTextbox(defaultValue) {
+    let textbox = document.createElement('input');
+    textbox.type = 'text';
+    textbox.value = defaultValue || '';
+    return textbox;
+  }
+
+  // Expose public methods
+  return {
+    createButton: createButton,
+    createLabel: createLabel,
+    createTextbox: createTextbox
   };
 })();

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Examplo Dialog Box</title>
+   <link rel="stylesheet" href="patty.GUI.css">
+</head>
+<body>
+
+  
+  <script type="module">
+    import { showDialog, hideDialog } from './components/dialogs.js';
+    import { createButton } from './components/controls.js';
+    
+    function showDialogExample() {
+      let content = document.createElement('p');
+      content.textContent = 'Olá mundo cruel das Dialogs!!!!';
+
+      let okButton = createButton('OK', function() {
+        hideDialog(dialogBox);
+      });
+      let cancelButton = createButton('Cancelar', function() {
+        hideDialog(dialogBox);
+      });
+      let buttons = [okButton, cancelButton];
+
+      let dialogBox = showDialog('Examplo Dialog', content, buttons);
+    }
+
+    let botao = document.getElementById("botao");
+
+    botao.onclick = showDialogExample;
+  </script>
+  <button id="botao">Show Dialog</button>
+</body>
+</html>
+
+
