@@ -59,6 +59,7 @@ class App {
         } else {
             this.setFont('Roboto, sans-serif'); // Define a fonte padrão, se não fornecida
         }
+
     }
 
     addComponent(component, parentId = 'root', position) {
@@ -241,5 +242,16 @@ class Label extends Component {
         label.id = id; // Define o id da etiqueta
         this.applyEventHandlers(label);
         return label; // Retorna o elemento de etiqueta
+    }
+}
+
+class Title extends Component {
+    render() {
+        const { text, id } = this.options; // Extrai texto e id das opções
+        const title = document.createElement('h2'); // Cria um elemento de título
+        title.textContent = text; // Define o texto do título
+        title.id = id; // Define o id do título
+        this.applyEventHandlers(title);
+        return title; // Retorna o elemento de título
     }
 }

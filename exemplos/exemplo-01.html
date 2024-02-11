@@ -23,6 +23,11 @@
         alert("Olá, " + document.getElementById("nameInput").value + "!")
       );
 
+      const titleApp = new Title({
+        id:"title",
+        text:"Teste da Biblioteca patty-gui.js"
+      });
+      app.addComponent(titleApp);
       app.addComponent(nameInput);
       app.addComponent(submitButton);
 
