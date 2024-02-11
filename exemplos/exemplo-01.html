@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo Simples com Patty-GUI</title>
+    <link rel="stylesheet" href="../patty-gui.css" />
+  </head>
+  <body>
+    <div id="patty-gui"></div>
+
+    <script src="../patty-gui.js"></script>
+    <script>
+      let app = new App({});
+
+      let nameInput = new TextBox({
+        id: "nameInput",
+        placeholder: "Digite seu nome",
+      });
+      // Adicionando um manipulador de evento de clique ao botão
+      let submitButton = new Button({ text: "Enviar", id: "submitButton" });
+      submitButton.eventHandler("click", () =>
+        alert("Olá, " + document.getElementById("nameInput").value + "!")
+      );
+
+      const titleApp = new Title({
+        id:"title",
+        text:"Teste da Biblioteca patty-gui.js"
+      });
+      app.addComponent(titleApp);
+      app.addComponent(nameInput);
+      app.addComponent(submitButton);
+
+      app.render();
+    </script>
+  </body>
+</html>
