@@ -15,7 +15,7 @@ Esta biblioteca é ideal para desenvolvedores que buscam uma solução leve e se
 - patty-gui.css (estilos padrão para os componentes da biblioteca)
 
 ## Licença
-Este projeto está licenciado sob a Licença Pública Geral GNU v3. Uma cópia da licença pode ser encontrada no arquivo LICENSE.md.
+Este projeto está licenciado sob a Licença Pública Geral GNU v3. Uma cópia da licença pode ser encontrada no arquivo LICENSE.
 
 ### Permissões
 - Uso comercial
