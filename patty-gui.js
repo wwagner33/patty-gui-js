@@ -106,14 +106,22 @@ class App {
 
 // Implementação das subclasses de Component: TextBox, Button, TextArea, DateInput, PasswordInput, RadioButton, Label
 
-/**
- *
- *
- * @class Component
- */
 class Component {
     constructor(options) {
-        this.options = options || {}; // Opções fornecidas ou um objeto vazio como padrão
+        this.options = options || {};
+        this.eventHandlers = {}; // Armazena os manipuladores de eventos
+    }
+
+    // Adiciona ou modifica um manipulador de evento
+    eventHandler(type, handler) {
+        this.eventHandlers[type] = handler;
+    }
+
+    // Aplica os manipuladores de evento ao elemento DOM
+    applyEventHandlers(element) {
+        for (const [type, handler] of Object.entries(this.eventHandlers)) {
+            element.addEventListener(type, handler);
+        }
     }
 
     render() {
@@ -121,39 +129,26 @@ class Component {
     }
 }
 
-/**
- *
- *
- * @class TextBox
- * @extends {Component}
- */
 class TextBox extends Component {
     render() {
-        const { placeholder = '', id } = this.options; // Extrai placeholder e id das opções
-        const input = document.createElement('input'); // Cria um elemento de entrada
-        input.type = 'text'; // Define o tipo como texto
-        input.placeholder = placeholder; // Define o texto de placeholder
-        input.id = id; // Define o id do elemento
-        return input; // Retorna o elemento de entrada
+        const { placeholder = '', id } = this.options;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = placeholder;
+        input.id = id;
+        this.applyEventHandlers(input); // Aplica os manipuladores de eventos
+        return input;
     }
 }
 
-/**
- *
- *
- * @class Button
- * @extends {Component}
- */
 class Button extends Component {
     render() {
-        const { text = 'Button', onClick, id } = this.options; // Extrai texto, onClick e id das opções
-        const button = document.createElement('button'); // Cria um elemento de botão
-        button.textContent = text; // Define o texto do botão
-        button.id = id; // Define o id do botão
-        if (onClick) {
-            button.addEventListener('click', onClick); // Adiciona o ouvinte de evento de clique, se fornecido
-        }
-        return button; // Retorna o elemento de botão
+        const { text = 'Button', id } = this.options;
+        const button = document.createElement('button');
+        button.textContent = text;
+        button.id = id;
+        this.applyEventHandlers(button); // Aplica os manipuladores de eventos
+        return button;
     }
 }
 
@@ -169,6 +164,7 @@ class TextArea extends Component {
         const textarea = document.createElement('textarea'); // Cria um elemento de área de texto
         textarea.placeholder = placeholder; // Define o texto de placeholder
         textarea.id = id; // Define o id da área de texto
+        this.applyEventHandlers(textarea);
         return textarea; // Retorna o elemento de área de texto
     }
 }
@@ -186,6 +182,7 @@ class DateInput extends Component {
         const input = document.createElement('input'); // Cria um elemento de entrada
         input.type = 'date'; // Define o tipo como data
         input.id = id; // Define o id do elemento
+        this.applyEventHandlers(input);
         return input; // Retorna o elemento de entrada
     }
 }
@@ -204,6 +201,7 @@ class PasswordInput extends Component {
         input.type = 'password'; // Define o tipo como senha
         input.placeholder = placeholder; // Define o texto de placeholder
         input.id = id; // Define o id do elemento
+        this.applyEventHandlers(input);
         return input; // Retorna o elemento de entrada
     }
 }
@@ -222,6 +220,7 @@ class RadioButton extends Component {
         input.name = name; // Define o nome do grupo de botões de rádio
         input.value = value; // Define o valor do botão de rádio
         input.id = id; // Define o id do botão de rádio
+        this.applyEventHandlers(input);
         return input; // Retorna o elemento de botão de rádio
     }
 }
@@ -240,6 +239,7 @@ class Label extends Component {
         label.htmlFor = forId; // Define a associação da etiqueta com o id do input
         label.textContent = text; // Define o texto da etiqueta
         label.id = id; // Define o id da etiqueta
+        this.applyEventHandlers(label);
         return label; // Retorna o elemento de etiqueta
     }
 }
