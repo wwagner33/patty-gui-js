@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Simples com Patty-GUI</title>
+    <link rel="stylesheet" href="patty-gui.css">
+</head>
+<body>
+
+<div id="patty-gui"></div>
+
+<script src="patty-gui.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializa o app sem opções para simplicidade
+        let app = new App({});
+
+        // Cria uma label para a entrada
+        let nameLabel = new Label({ text: "Nome:", forId: "nameInput" });
+
+        // Cria uma entrada de texto para o nome do usuário
+        let nameInput = new TextBox({ id: "nameInput", placeholder: "Digite seu nome" });
+
+        // Cria um botão de envio
+        let submitButton = new Button({ 
+            text: "Enviar", 
+            onClick: () => alert("Olá, " + document.getElementById("nameInput").value + "!") 
+        });
+
+        // Adiciona componentes ao app
+        app.addComponent(nameLabel);
+        app.addComponent(nameInput);
+        app.addComponent(submitButton);
+
+        // Renderiza o app para exibir os componentes
+        app.render();
+    });
+</script>
+
+</body>
+</html>

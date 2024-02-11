@@ -1,0 +1,93 @@
+/**
+ * Estilos para a biblioteca patty-gui.js
+ * 
+ * @author Wellington W. F. Sarmento
+ * @author Patrícia S. Paula
+ * @license GPL-v3
+ * 
+ * Data de Criação: 11/02/2024
+ * Data de Atualização: 11/02/2024
+ * 
+ * @file patty-gui.css
+ * 
+ * @description Este arquivo contém os estilos padrão para os componentes da biblioteca patty-gui, uma ferramenta simples e flexível para construção de interfaces gráficas de usuário (GUI) em páginas web. Define estilos para caixas de texto, botões, áreas de texto, entradas de data, senhas, botões de rádio, etiquetas e outros elementos de formulário, promovendo uma experiência de usuário coesa e visualmente agradável. Os estilos são projetados para serem modernos, acessíveis e fáceis de personalizar, seguindo os princípios de design responsivo.
+ * @version 0.9.0
+ **/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;700&display=swap');
+
+#patty-gui {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 20px; /* Increased gap for better spacing */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+    width: auto;
+    max-width: 600px; /* Adjusted for optimal readability */
+    margin: 40px auto;
+    box-sizing: border-box;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea, button {
+    width: 100%;
+    padding: 15px; /* Increased padding for better touch target size */
+    margin: 10px 0; /* Increased margin for clearer separation */
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions for interactions */
+}
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, textarea:hover {
+    border-color: #6200EE; /* Highlight on hover */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+    border-color: #6200EE; /* Highlight on focus */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(98, 0, 238, 0.2); /* Soft glow effect */
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Ensured readability */
+    background-color: #f9f9f9; /* Slight off-white background for input fields */
+}
+
+button {
+    background-color: #6200EE;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+button:hover, button:focus {
+    background-color: #3700B3; /* Darker shade for interactive feedback */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover/focus */
+}
+
+input[type="radio"] {
+    cursor: pointer; /* Ensure it's clear the radio buttons are interactive */
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 10px; /* Slightly larger margin for clear association with inputs */
+    display: block; /* Ensure labels are properly aligned with inputs */
+    color: #333; /* Darker text for better contrast */
+}
+
+@media (max-width: 768px) {
+    #patty-gui {
+        max-width: 95%; /* More responsive on smaller screens */
+        padding: 15px; /* Adjusted padding for screen size */
+    }
+}
