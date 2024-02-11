@@ -6,16 +6,18 @@
 - Patrícia S. Paula
 
 ## Descrição
-A biblioteca patty-gui é uma ferramenta simples e flexível para construção de interfaces gráficas de usuário (GUI) em páginas web. Permite a criação dinâmica de componentes de formulário como caixas de texto, botões, áreas de texto, entradas de data, senhas, botões de rádio e etiquetas, com gestão hierárquica de componentes para facilitar a organização e a manipulação da estrutura da interface.
 
-Esta biblioteca é ideal para desenvolvedores que buscam uma solução leve e sem dependências para adicionar interatividade às suas páginas web, seguindo os princípios de design moderno e boa usabilidade.
+A biblioteca **Patty's Teach You with a simple GUI (patty-guijs)** é uma Javascript biblioteca simples para ajudar prfessres e estudantes de programação - principamente para Web - mstrar s principais conceitos de interface gráfica do usuário *Graphica User Interface* GUI) e eventos usando um navegador da web e Javascript. 
+
+Se você está cansado de criar uma página HTML e um arquivo CSS para fazer uma interface gráfica web simples, esta é a sua biblioteca. :-D \o/
+
 
 ## Arquivos Relacionados
 - patty-gui.js (script principal da biblioteca)
 - patty-gui.css (estilos padrão para os componentes da biblioteca)
 
 ## Licença
-Este projeto está licenciado sob a Licença Pública Geral GNU v3. Uma cópia da licença pode ser encontrada no arquivo LICENSE.
+Este projeto está licenciado sob a Licença Pública Geral GNU v3. Uma cópia da licença pode ser encontrada no arquivo LICENSE.md.
 
 ### Permissões
 - Uso comercial
@@ -42,3 +44,5 @@ Este projeto está licenciado sob a Licença Pública Geral GNU v3. Uma cópia d
 
 ## Versão
 0.9.0
+
+[English version of README.md](README-en.md)
