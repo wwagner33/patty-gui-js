@@ -1,5 +1,5 @@
 
-# Biblioteca **patty-gui.js**
+# Biblioteca *patty-gui.js*
 
 ## Autores
 - Wellington W. F. Sarmento
