@@ -7,7 +7,11 @@
 
 ## Descrição
 
+<<<<<<< HEAD
 A biblioteca **Patty's Teach You with a simple GUI (patty-guijs)** é uma Javascript biblioteca simples para ajudar professoras, professores e estudantes de programação a trablhar com os principais conceitos de interface gráficas do usuário *Graphica User Interface* GUI) e eventos. 
+=======
+A biblioteca ***P*at*t*y's *T*each *Y*ou with a simple *GUI* in Vanilla Javascript(patty-gui.js)** é uma Javascript biblioteca simples para ajudar prfessres e estudantes de programação - principamente para Web - mstrar s principais conceitos de interface gráfica do usuário *Graphica User Interface* GUI) e eventos usando um navegador da web e Javascript. 
+>>>>>>> 97ff6dc (Update README.md)
 
 Se você está cansado de criar uma página HTML e um arquivo CSS para fazer uma interface gráfica web simples, esta é a sua biblioteca. :-D \o/
 
