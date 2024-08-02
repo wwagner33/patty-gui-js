@@ -133,22 +133,33 @@ class Component {
 class TextBox extends Component {
     render() {
         const { placeholder = '', id } = this.options;
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.placeholder = placeholder;
-        input.id = id;
-        this.applyEventHandlers(input); // Aplica os manipuladores de eventos
-        return input;
+        const textbox = document.createElement('input');
+        textbox.type = 'text';
+        textbox.placeholder = placeholder;
+        textbox.id = id;
+        this.applyEventHandlers(textbox);
+        this.element = textbox; // Guarda uma referência ao elemento para acessar seu valor posteriormente
+        return textbox;
+    }
+
+    getValue() {
+        return this.element ? this.element.value : '';
     }
 }
 
+
 class Button extends Component {
     render() {
-        const { text = 'Button', id } = this.options;
+        const { text = 'Button', id, onClick } = this.options;
         const button = document.createElement('button');
         button.textContent = text;
         button.id = id;
-        this.applyEventHandlers(button); // Aplica os manipuladores de eventos
+
+        if (onClick && typeof onClick === 'function') {
+            button.addEventListener('click', onClick);
+        }
+
+        this.applyEventHandlers(button); // Aplica os manipuladores de eventos adicionais, se houver
         return button;
     }
 }

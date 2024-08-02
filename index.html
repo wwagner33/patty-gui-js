@@ -16,19 +16,29 @@
         // Inicializa a aplicação Patty-GUI
         const app = new App({ fontFamily: 'Roboto, sans-serif' });
 
+        // Cria o TextBox
+        const textBox = new TextBox({ placeholder: 'Digite algo...', id: 'textbox1' });
+
+        // Função de tratamento de clique do botão
+        function handleButtonClick() {
+            const textBoxValue = textBox.getValue(); // Pega o valor do TextBox
+            alert(`Conteúdo do TextBox: ${textBoxValue}`);
+        }
+
         // Adiciona componentes ao app
         const title1 = new Title({ text: 'Bem-vindo ao Patty GUI', id: 'main-title', level: 1 });
         const title2 = new Title({ text: 'Este é um subtítulo', id: 'sub-title', level: 2 });
+
         const sections = [
             new Title({ text: 'TextBox e Button', id: 'section1', level: 3 }),
             new Title({ text: 'TextArea', id: 'section2', level: 3 }),
             new Title({ text: 'DateInput', id: 'section3', level: 3 }),
             new Title({ text: 'PasswordInput', id: 'section4', level: 3 }),
-            new Title({ text: 'RadioButton', id: 'section4', level: 3 }),
-            new Title({ text: 'CheckBox', id: 'section5', level: 3 })
+            new Title({ text: 'RadioButton', id: 'section5', level: 3 }),
+            new Title({ text: 'CheckBox', id: 'section6', level: 3 })
         ];
-        const textBox = new TextBox({ placeholder: 'Digite algo...', id: 'textbox1' });
-        const button = new Button({ text: 'Clique em mim', id: 'button1' });
+
+        const button = new Button({ text: 'Clique em mim', id: 'button1', onClick: handleButtonClick });
         const textArea = new TextArea({ placeholder: 'Área de texto...', id: 'textarea1' });
         const dateInput = new DateInput({ id: 'date1' });
         const passwordInput = new PasswordInput({ placeholder: 'Senha', id: 'password1' });
@@ -50,17 +60,23 @@
         // Adiciona os componentes ao app
         app.addComponent(title1);
         app.addComponent(title2);
+
         app.addComponent(sections[0]);
         app.addComponent(textBox);
         app.addComponent(button);
+
         app.addComponent(sections[1]);
         app.addComponent(textArea);
+
         app.addComponent(sections[2]);
         app.addComponent(dateInput);
+
         app.addComponent(sections[3]);
         app.addComponent(passwordInput);
+
         app.addComponent(sections[4]);
         radioButtons.forEach(rb => app.addComponent(rb));
+
         app.addComponent(sections[5]);
         checkBoxes.forEach(cb => app.addComponent(cb));
 
