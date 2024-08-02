@@ -7,7 +7,7 @@
 
 ## Descrição
 
-A biblioteca <strong>*P*at*t*y's *T*each *Y*ou with a simple *GUI* in Vanilla Javascript(patty-gui.js)</strong> é uma biblioteca Javascript simples para ajudar professoras, professores e estudantes de programação a trabalhar com os principais conceitos de Interfaces Gráficas de Usuários (*Graphica User Interface* GUI), através da web.
+A biblioteca <strong>*P*at*t*y's *T*each *Y*ou with a simple *GUI* in Vanilla Javascript(patty-gui.js)</strong> é uma biblioteca Javascript simples para ajudar professoras, professores e estudantes de programação a trabalhar com os principais conceitos de Interfaces Gráficas de Usuários (*Graphica User Interface* GUI), através da web. 
 
 *Se você está cansado de criar uma página HTML e um arquivo CSS para fazer uma interface gráfica web simples, esta é a sua biblioteca. :-D \o/*
 
