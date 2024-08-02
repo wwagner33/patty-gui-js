@@ -215,16 +215,62 @@ class PasswordInput extends Component {
  */
 class RadioButton extends Component {
     render() {
-        const { name, value, id } = this.options; // Extrai nome, valor e id das opções
-        const input = document.createElement('input'); // Cria um elemento de entrada
+        const { name, value, id, text } = this.options; // Extrai nome, valor, id e texto das opções
+
+        const container = document.createElement('div'); // Cria um contêiner para o botão de rádio e a label
+        container.className = 'radio-container'; // Aplica a classe CSS
+
+        const input = document.createElement('input'); // Cria o elemento de entrada
         input.type = 'radio'; // Define o tipo como botão de rádio
         input.name = name; // Define o nome do grupo de botões de rádio
         input.value = value; // Define o valor do botão de rádio
         input.id = id; // Define o id do botão de rádio
-        this.applyEventHandlers(input);
-        return input; // Retorna o elemento de botão de rádio
+
+        const label = document.createElement('label'); // Cria o elemento de etiqueta
+        label.htmlFor = id; // Define a associação da etiqueta com o id do input
+        label.textContent = text; // Define o texto da etiqueta
+
+        container.appendChild(input); // Adiciona o botão de rádio ao contêiner
+        container.appendChild(label); // Adiciona a label ao contêiner
+
+        this.applyEventHandlers(input); // Aplica os manipuladores de eventos ao botão de rádio
+        return container; // Retorna o contêiner contendo o botão de rádio e a label
     }
 }
+
+
+/**
+ *
+ *
+ * @class CheckBox
+ * @extends {Component}
+ */
+class CheckBox extends Component {
+    render() {
+        const { name, value, id, text } = this.options; // Extrai nome, valor, id e texto das opções
+
+        const container = document.createElement('div'); // Cria um contêiner para o checkbox e a label
+        container.className = 'checkbox-container'; // Aplica a classe CSS
+
+        const input = document.createElement('input'); // Cria o elemento de entrada
+        input.type = 'checkbox'; // Define o tipo como checkbox
+        input.name = name; // Define o nome do checkbox
+        input.value = value; // Define o valor do checkbox
+        input.id = id; // Define o id do checkbox
+
+        const label = document.createElement('label'); // Cria o elemento de etiqueta
+        label.htmlFor = id; // Define a associação da etiqueta com o id do input
+        label.textContent = text; // Define o texto da etiqueta
+
+        container.appendChild(input); // Adiciona o checkbox ao contêiner
+        container.appendChild(label); // Adiciona a label ao contêiner
+
+        this.applyEventHandlers(input); // Aplica os manipuladores de eventos ao checkbox
+        return container; // Retorna o contêiner contendo o checkbox e a label
+    }
+}
+
+
 
 
 /**
@@ -247,11 +293,13 @@ class Label extends Component {
 
 class Title extends Component {
     render() {
-        const { text, id } = this.options; // Extrai texto e id das opções
-        const title = document.createElement('h2'); // Cria um elemento de título
+        const { text, id, level = 2 } = this.options; // Extrai texto, id e nível do título das opções
+        const headingLevel = Math.min(Math.max(level, 1), 6); // Garante que o nível esteja entre 1 e 6
+
+        const title = document.createElement(`h${headingLevel}`); // Cria um elemento de título com o nível especificado
         title.textContent = text; // Define o texto do título
         title.id = id; // Define o id do título
-        this.applyEventHandlers(title);
+        this.applyEventHandlers(title); // Aplica os manipuladores de eventos
         return title; // Retorna o elemento de título
     }
 }
