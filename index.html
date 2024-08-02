@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testes do Patty-GUI-Js</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="patty-gui.css">
+</head>
+<body>
+    <h2>Testes do Patty GUI Javascript</h2>
+    <div class="container" id="patty-gui">
+    </div>
+    <script src="patty-gui.js"></script>
+    <script>
+        // Inicializa a aplicação Patty-GUI
+        const app = new App({ fontFamily: 'Roboto, sans-serif' });
+
+        // Adiciona componentes ao app
+        const title1 = new Title({ text: 'Bem-vindo ao Patty GUI', id: 'main-title', level: 1 });
+        const title2 = new Title({ text: 'Este é um subtítulo', id: 'sub-title', level: 2 });
+        const sections = [
+            new Title({ text: 'TextBox e Button', id: 'section1', level: 3 }),
+            new Title({ text: 'TextArea', id: 'section2', level: 3 }),
+            new Title({ text: 'DateInput', id: 'section3', level: 3 }),
+            new Title({ text: 'PasswordInput', id: 'section4', level: 3 }),
+            new Title({ text: 'RadioButton', id: 'section4', level: 3 }),
+            new Title({ text: 'CheckBox', id: 'section5', level: 3 })
+        ];
+        const textBox = new TextBox({ placeholder: 'Digite algo...', id: 'textbox1' });
+        const button = new Button({ text: 'Clique em mim', id: 'button1' });
+        const textArea = new TextArea({ placeholder: 'Área de texto...', id: 'textarea1' });
+        const dateInput = new DateInput({ id: 'date1' });
+        const passwordInput = new PasswordInput({ placeholder: 'Senha', id: 'password1' });
+
+        // Cria e adiciona RadioButtons ao app
+        const radioButtons = [
+            new RadioButton({ name: 'options', value: 'option1', id: 'radio1', text: 'Opção 1' }),
+            new RadioButton({ name: 'options', value: 'option2', id: 'radio2', text: 'Opção 2' }),
+            new RadioButton({ name: 'options', value: 'option3', id: 'radio3', text: 'Opção 3' }),
+            new RadioButton({ name: 'options', value: 'option4', id: 'radio4', text: 'Opção 4' }),
+        ];
+
+        // Cria e adiciona CheckBoxes ao app
+        const checkBoxes = [
+            new CheckBox({ name: 'check1', value: 'value1', id: 'check1', text: 'Checkbox 1' }),
+            new CheckBox({ name: 'check2', value: 'value2', id: 'check2', text: 'Checkbox 2' }),
+        ];
+
+        // Adiciona os componentes ao app
+        app.addComponent(title1);
+        app.addComponent(title2);
+        app.addComponent(sections[0]);
+        app.addComponent(textBox);
+        app.addComponent(button);
+        app.addComponent(sections[1]);
+        app.addComponent(textArea);
+        app.addComponent(sections[2]);
+        app.addComponent(dateInput);
+        app.addComponent(sections[3]);
+        app.addComponent(passwordInput);
+        app.addComponent(sections[4]);
+        radioButtons.forEach(rb => app.addComponent(rb));
+        app.addComponent(sections[5]);
+        checkBoxes.forEach(cb => app.addComponent(cb));
+
+        // Renderiza a aplicação
+        app.render();
+    </script>
+</body>
+</html>

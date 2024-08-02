@@ -17,6 +17,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;700&display=swap');
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
 #patty-gui {
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -24,12 +33,12 @@
     align-items: center;
     justify-content: flex-start;
     padding: 20px;
-    gap: 20px; /* Increased gap for better spacing */
+    gap: 20px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     width: auto;
-    max-width: 600px; /* Adjusted for optimal readability */
+    max-width: 600px;
     margin: 40px auto;
     box-sizing: border-box;
 }
@@ -90,4 +99,23 @@ label {
         max-width: 95%; /* More responsive on smaller screens */
         padding: 15px; /* Adjusted padding for screen size */
     }
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.radio-container label {
+    margin-left: 5px; /* Espaçamento entre o botão de rádio e a label */
+}
+
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.checkbox-container label {
+    margin-left: 5px; /* Espaçamento entre o botão de rádio e a label */
 }
